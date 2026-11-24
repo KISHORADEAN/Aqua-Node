@@ -21,7 +21,8 @@ The relay pin, active level, RTC pins and safety limits are set in
 - Up to 10 daily schedules (`MAX_SCHEDULES`), stored in NVS so they survive a
   reboot.
 - Automatic mode plus a WiFi watchdog that reconnects without rebooting.
-- Only chat IDs listed in `NUMBER_OF_ALLOWED_CHATS` may send commands.
+- Only chat IDs listed in `ALLOWED_CHAT_IDS` may send commands
+  (`NUMBER_OF_ALLOWED_CHATS` is derived from that list).
 
 ## Setup
 
@@ -54,7 +55,7 @@ Everything is a compile-time define in `include/config.h`:
 | --- | --- |
 | `WIFI_SSID`, `WIFI_PASSWORD` | Network credentials |
 | `BOT_TOKEN` | Telegram bot token |
-| `NUMBER_OF_ALLOWED_CHATS` | Chat IDs allowed to control the pump |
+| `ALLOWED_CHAT_IDS` | Chat IDs allowed to control the pump |
 | `RELAY_PIN`, `RELAY_ON`, `RELAY_OFF` | Relay wiring and active level |
 | `RTC_CLK`, `RTC_DAT`, `RTC_RST` | DS1302 pins |
 | `PUMP_MAX_RUNTIME_MS` | Failsafe cutoff for a manual run |
